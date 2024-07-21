@@ -11,16 +11,21 @@
                         name="Name"
                         [(ngModel)] = "user.name"
                         class="form-control my-2"
-                        required
                         #name="ngModel"
-                    >
+                        >
+                    @if (errors?.name) {
+                        <div class="text-danger">
+                            {{errors.name}}
+                        </div>
+                    }
+                        <!-- required 
                     @if (name.invalid && (name.dirty || name.touched)) {
                         @if(name.errors!['required']){
                             <div class="text-danger">
                                 <p>El nombre es requerido</p>
                             </div>
                         }
-                    }
+                    }-->
                 </div>
                 <div>
                     <input 
@@ -28,16 +33,21 @@
                         name="lastname"
                         [(ngModel)] = "user.lastname"
                         class="form-control my-2"
-                        required
                         #lastname="ngModel"
-                    >
+                        >
+                    @if (errors?.lastname) {
+                        <div class="text-danger">
+                            {{errors.lastname}}
+                        </div>
+                    }
+                        <!-- required 
                     @if (lastname.invalid && (lastname.dirty || lastname.touched)) {
                         @if(lastname.errors!['required']){
                             <div class="text-danger">
                                 <p>El apellido es requerido</p>
                             </div>
                         }
-                    }
+                    }-->
                 </div>
                 <div>
                     <input 
@@ -46,10 +56,15 @@
                         type="email"
                         [(ngModel)] = "user.email"
                         class="form-control my-2"
-                        required
-                        email
                         #email="ngModel"
-                    >
+                        >
+                        @if (errors?.email) {
+                            <div class="text-danger">
+                                {{errors.email}}
+                            </div>
+                        }
+                        <!-- email
+                        required 
                     @if (email.invalid && (email.dirty || email.touched)) {
                         @if(email.errors!['required']){
                             <div class="text-danger">
@@ -61,7 +76,7 @@
                                 <p>El email no tiene formato correcto</p>
                             </div>
                         }
-                    }
+                    } -->
                 </div>
                 <div>
                     <input 
@@ -69,10 +84,15 @@
                         name="username"
                         [(ngModel)] = "user.username"
                         class="form-control my-2"
-                        required
-                        minlength="8"
                         #username="ngModel"
-                    >
+                        >
+                        @if (errors?.username) {
+                            <div class="text-danger">
+                                {{errors.username}}
+                            </div>
+                        }
+                        <!-- minlength="8"
+                        required 
                     @if (username.invalid && (username.dirty || username.touched)) {
                         @if(username.errors!['required']){
                             <div class="text-danger">
@@ -84,7 +104,7 @@
                                 <p>El Username debe tener minimo 8 caracteres</p>
                             </div>
                         }
-                    }
+                    } -->
                 </div>
                 <div>
                     <input 
@@ -93,10 +113,15 @@
                         type="password"
                         [(ngModel)] = "user.password"
                         class="form-control my-2"
-                        required
-                        minlength="6"
                         #password="ngModel"
-                    >
+                        >
+                        @if (errors?.password) {
+                            <div class="text-danger">
+                                {{errors.password}}
+                            </div>
+                        }
+                        <!-- minlength="6"
+                        required 
                     @if (password.invalid && (password.dirty || password.touched)) {
                         @if(password.errors!['required']){
                             <div class="text-danger">
@@ -108,14 +133,14 @@
                                 <p>El password debe tener minimo 6 caracteres</p>
                             </div>
                         }
-                    }
+                    }-->
                 </div>
                 <div>
                     <button 
                         type="submit" 
                         class="btn btn-primary m-2" 
-                        [disabled]="userForm.invalid"
-                    >
+                        >
+                        <!-- [disabled]="userForm.invalid" -->
                         {{(user.id > 0) ? 'Update' : 'Create'}}
                     </button>
                     <button 
